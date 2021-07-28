@@ -30,7 +30,7 @@ class Manufacturers
      * @param  mixed $linkingTargetType
      * @return array
      */
-    public function query(string $linkingTargetType): array
+    public function filter(string $linkingTargetType): array
     {
         return TecDoc::post('',$this->createPayload($linkingTargetType));
     }
