@@ -2,11 +2,11 @@
 
 namespace Composite\TecDoc;
 
-// use Composite\TecDoc\Traits\Services;
+use Composite\TecDoc\Traits\Services;
 
 class TecDoc
 {
-    // use Services;
+    use Services;
 
     /**
      * @var \Composite\TecDoc\Gateway

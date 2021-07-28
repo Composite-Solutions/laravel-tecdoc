@@ -11,6 +11,8 @@ use Composite\TecDoc\Gateway;
  * @method static array put(string $uri, array $payload = [])
  * @method static array delete(string $uri, array $payload = [])
  * @method static Gateway gateway()
+ * @method static Manufacturers manufacturers()
+ * 
  */
 class TecDoc extends Facade
 {
