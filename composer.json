@@ -1,0 +1,36 @@
+{
+    "name": "composite/laravel-tecdoc",
+    "description": "TecDoc API wrapper for laravel",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "tecdoc",
+        "carpart",
+        "client",
+        "api"
+    ],
+    "authors": [
+        {
+            "name": "Bence Támba",
+            "email": "btamba@composite.hu",
+            "homepage": "https://composite-solutions.eu"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/Composite-Solutions/laravel-tecdoc",
+        "issues": "https://github.com/Composite-Solutions/laravel-tecdoc/issues"
+    },
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "illuminate/support": "5.8.*|~6.0|~7.0|~8.0",
+        "guzzlehttp/guzzle": "~6.0|~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Composite\\Tecdoc\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
