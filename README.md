@@ -15,29 +15,9 @@
 
 ## Install
 
-You can install the package by adding the following lines to composer.json. The repository’s property lists all non-packagist repositories.
-```php
-...
-"require": {
-    "php": "^7.1.3",
-    "fideloper/proxy": "^4.0",
-    "laravel/framework": "5.7.*",
-    "laravel/tinker": "^1.0",
-    "composite/laravel-tecdoc": "^1.0.0"
-},
-...
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/Composite-Solutions/laravel-tecdoc.git"
-    }
-]
-...
-```
-
-After updateing the composer.json file, you can install the package from the repository with:
+You can install the package via [Composer](https://getcomposer.org/)
 ```bash
-$ composer update
+$ composer require composite/laravel-tecdoc
 ```
 
 In Laravel 5.5 or above the service provider will automatically get registered. In older versions of the framework just add the service provider in `config/app.php` file:
@@ -69,11 +49,62 @@ When published, [the `config/tecdoc.php` config](config/tecdoc.php) file contain
 <?php
 
 return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | TecDoc service url
+    |--------------------------------------------------------------------------
+    |
+    | The service url of TecDoc REST API
+    |
+    */
+
     'service_url' => env('TEC_DOC_SERVICE_URL', "https://webservice.tecalliance.services/pegasus-3-0/services/TecdocToCatDLB.jsonEndpoint"),
+    
+    /*
+    |--------------------------------------------------------------------------
+    | API key
+    |--------------------------------------------------------------------------
+    |
+    | The user's API key for TecDoc REST API service
+    |
+    */
+
     'api_key' => env('TECDOC_API_KEY'),
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Provider ID
+    |--------------------------------------------------------------------------
+    |
+    | The user's provider ID for TecDoc REST API service
+    |
+    */
+    
     'provider_id' => env('TECDOC_PROVIDER_ID'),
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Country code (ISO 3166)
+    |--------------------------------------------------------------------------
+    |
+    | The user's registered country code (Country code according to ISO 3166)
+    |
+    */
+    
     'country' => 'HU',
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Language code (ISO 639)
+    |--------------------------------------------------------------------------
+    |
+    | Chosen language code for response (Language code according to ISO 639)
+    |
+    */
+    
     'lang' => 'HU',
+     
 ];
 ```
     
@@ -110,4 +141,4 @@ If you discover any security-related issues, please email [btamba@composite.hu](
 
 ## Licence
 
-The Laravel Nebih package is open-source software licensed under the [MIT license](LICENSE).
+The Laravel TecDoc package is open-source software licensed under the [MIT license](LICENSE).
