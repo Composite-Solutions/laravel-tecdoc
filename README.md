@@ -138,6 +138,8 @@ return [
 \TecDoc::articles()->ids(array $filter);
 
 \TecDoc::articles()->find(int $articleId, array $filter = null);
+
+\TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
 ```
     
 ## Testing
