@@ -111,6 +111,7 @@ return [
 ## Usage
 
 - Manufacturers, [check out the manufacturers.md](docs/manufacturers.md)
+- Model series, [check out the manufacturers.md](docs/modelSeries.md)
 
 
 ```php
@@ -124,7 +125,9 @@ return [
 
 \TecDoc::manufacturers()->all();
 
-\TecDoc::manufacturers()->filter(string $linkingTargetType);
+\TecDoc::manufacturers()->filter(array $filter);
+
+\TecDoc::modelSeries()->filter(array $filter);
 ```
     
 ## Testing
