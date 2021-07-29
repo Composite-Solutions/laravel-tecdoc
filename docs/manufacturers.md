@@ -5,8 +5,14 @@
 \TecDoc::manufacturers()->all()
 ```
 
-## Filter manufacturers by linking target type:
-
+## Filter manufacturers:
+#### Filter options:
+```php
+$filter = [
+    "lang" => "HU" // default is in config
+    "linkingTargetType" => "P" // default is P (passenger car)
+]
+```
 #### Linking target type string options:
 - P: Passenger car
 - O: Commercial vehicle
@@ -14,5 +20,5 @@
 - M: Motor
 
 ```php
-\TecDoc::manufacturers()->filter(string $linkingTargetType)
+\TecDoc::manufacturers()->filter(array $filter)
 ```

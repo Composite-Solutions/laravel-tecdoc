@@ -3,6 +3,7 @@
 namespace Composite\TecDoc\Traits;
 
 use Composite\TecDoc\Services\Manufacturers;
+use Composite\TecDoc\Services\ModelSeries;
 
 trait Services
 {
@@ -12,5 +13,13 @@ trait Services
     public function manufacturers(): Manufacturers
     {
         return new Manufacturers;
+    }
+        
+    /**
+     * @return ModelSeries
+     */
+    public function modelSeries(): ModelSeries
+    {
+        return new ModelSeries;
     }
 }

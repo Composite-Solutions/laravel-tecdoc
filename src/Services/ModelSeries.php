@@ -5,28 +5,18 @@ namespace Composite\TecDoc\Services;
 use Composite\TecDoc\Facades\TecDoc;
 use Illuminate\Support\Facades\Config;
 
-class Manufacturers
+class ModelSeries
 {
-    /**
-     * Get all passenger car manufacturers
-     *
-     * @return array
-     */
-    public function all(): array
-    {
-        $response = TecDoc::post('',$this->createPayload());
-        return isset($response["data"]) ? $response["data"]["array"] : $response;
-    }
 
     /**
-     * Filter manufacturers by
-     * linking targer types.
+     * Filter ModelSeries
      * 
      * $filter = [
-     *  "lang" => "HU" // default is in config
-     *  "linkingTargetType" => "P" // default is P (passenger car)
+     *  "lang" => "HU", // default is in config file
+     *  "linkingTargetType" => "P", // default is P (passenger car)
+     *  "manuId" => 5 // Required 
      * ]
-     *
+     * 
      * linkingTargetType options:
      *  P: Passenger car
      *  O: Commercial vehicle
@@ -39,23 +29,24 @@ class Manufacturers
     public function filter(array $filter): array
     {
         $response = TecDoc::post('',$this->createPayload($filter));
-        return isset($response["data"]) ? $response["data"]["array"] : $response;
+        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : [];
     }
     
     /**
      * Create request payload for API calls
      *
      * @param  array $filter
-     * @return array
+     * @return void
      */
-    private function createPayload(array $filter = null): array
+    private function createPayload(array $filter)
     {
         return [
-            "getManufacturers" => [
+            "getModelSeries" => [
                 "country" => Config::get('tecdoc.country'),
                 "provider" => Config::get('tecdoc.provider_id'),
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
-                "linkingTargetType" => $filter["linkingTargetType"] ?? "P",
+                "linkingTargetType" => $linkingTargetType ?? "P",
+                "manuId" => $filter["manuId"]
             ]
         ];
     }
