@@ -29,7 +29,7 @@ class ModelSeries
     public function filter(array $filter): array
     {
         $response = TecDoc::post('',$this->createPayload($filter));
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : [];
+        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
     
     /**
@@ -45,7 +45,7 @@ class ModelSeries
                 "country" => Config::get('tecdoc.country'),
                 "provider" => Config::get('tecdoc.provider_id'),
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
-                "linkingTargetType" => $linkingTargetType ?? "P",
+                "linkingTargetType" => $filter["linkingTargetType"] ?? "P",
                 "manuId" => $filter["manuId"]
             ]
         ];

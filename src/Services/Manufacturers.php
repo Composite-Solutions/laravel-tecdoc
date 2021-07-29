@@ -15,7 +15,7 @@ class Manufacturers
     public function all(): array
     {
         $response = TecDoc::post('',$this->createPayload());
-        return isset($response["data"]) ? $response["data"]["array"] : $response;
+        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
 
     /**
@@ -39,7 +39,7 @@ class Manufacturers
     public function filter(array $filter): array
     {
         $response = TecDoc::post('',$this->createPayload($filter));
-        return isset($response["data"]) ? $response["data"]["array"] : $response;
+        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
     
     /**

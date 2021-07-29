@@ -112,6 +112,7 @@ return [
 
 - Manufacturers, [check out the manufacturers.md](docs/manufacturers.md)
 - Model series, [check out the modelSeries.md](docs/modelSeries.md)
+- Vehicles, [check out the vehicles.md](docs/vehicles.md)
 
 
 ```php
@@ -128,6 +129,10 @@ return [
 \TecDoc::manufacturers()->filter(array $filter);
 
 \TecDoc::modelSeries()->filter(array $filter);
+
+\TecDoc::vehicles()->ids(array $filter);
+
+\TecDoc::vehicles()->filter(array $filter);
 ```
     
 ## Testing

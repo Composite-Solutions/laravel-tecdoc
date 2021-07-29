@@ -13,6 +13,7 @@ use Composite\TecDoc\Gateway;
  * @method static Gateway gateway()
  * @method static Manufacturers manufacturers()
  * @method static ModelSeries modelSeries()
+ * @method static Vehicles vehicles()
  * 
  */
 class TecDoc extends Facade
