@@ -113,6 +113,7 @@ return [
 - Manufacturers, [check out the manufacturers.md](docs/manufacturers.md)
 - Model series, [check out the modelSeries.md](docs/modelSeries.md)
 - Vehicles, [check out the vehicles.md](docs/vehicles.md)
+- Articles, [check out the articles.md](docs/articles.md)
 
 
 ```php
@@ -133,6 +134,10 @@ return [
 \TecDoc::vehicles()->ids(array $filter);
 
 \TecDoc::vehicles()->filter(array $filter);
+
+\TecDoc::articles()->ids(array $filter);
+
+\TecDoc::articles()->find(int $articleId, array $filter = null);
 ```
     
 ## Testing
