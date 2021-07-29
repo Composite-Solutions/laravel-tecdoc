@@ -2,7 +2,7 @@
 
 ## List manufacturers (passenger car):
 ```php
-\TecDoc::manufacturers()->all()
+TecDoc::manufacturers()->all()
 ```
 
 ## Filter manufacturers:
@@ -20,5 +20,5 @@ $filter = [
 - M: Motor
 
 ```php
-\TecDoc::manufacturers()->filter(array $filter)
+TecDoc::manufacturers()->filter(array $filter)
 ```

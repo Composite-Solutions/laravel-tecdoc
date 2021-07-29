@@ -16,5 +16,5 @@ $filter = [
 - A: Axles
 
 ```php
-\TecDoc::modelSeries()->filter(array $filter)
+TecDoc::modelSeries()->filter(array $filter)
 ```

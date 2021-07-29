@@ -117,29 +117,29 @@ return [
 
 
 ```php
-\TecDoc::get(string $uri, array $payload = []);
+TecDoc::get(string $uri, array $payload = []);
 
-\TecDoc::post(string $uri, array $payload = []);
+TecDoc::post(string $uri, array $payload = []);
 
-\TecDoc::put(string $uri, array $payload = []);
+TecDoc::put(string $uri, array $payload = []);
 
-\TecDoc::delete(string $uri, array $payload = []);
+TecDoc::delete(string $uri, array $payload = []);
 
-\TecDoc::manufacturers()->all();
+TecDoc::manufacturers()->all();
 
-\TecDoc::manufacturers()->filter(array $filter);
+TecDoc::manufacturers()->filter(array $filter);
 
-\TecDoc::modelSeries()->filter(array $filter);
+TecDoc::modelSeries()->filter(array $filter);
 
-\TecDoc::vehicles()->ids(array $filter);
+TecDoc::vehicles()->ids(array $filter);
 
-\TecDoc::vehicles()->filter(array $filter);
+TecDoc::vehicles()->filter(array $filter);
 
-\TecDoc::articles()->ids(array $filter);
+TecDoc::articles()->ids(array $filter);
 
-\TecDoc::articles()->find(int $articleId, array $filter = null);
+TecDoc::articles()->find(int $articleId, array $filter = null);
 
-\TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
+TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
 ```
     
 ## Testing
