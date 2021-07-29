@@ -9,7 +9,7 @@ $filter = [
     "linkingTargetId" => 26582, // Required (carId / motor id)
     "linkingTargetType" => "P",  // default is P (passenger car)
     "sort" => 1, // 1: by brand name, 2: by generic article name
-    "barandNo" => [
+    "brandNo" => [
         5,
         347,
         432
