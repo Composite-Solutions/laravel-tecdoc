@@ -82,5 +82,5 @@ $filter = [
 - 6: EAN number
 - 10: Any number
 ```php
-TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null)
+TecDoc::articles()->findByNumber(string $articleNumber, array $filter = null)
 ```
