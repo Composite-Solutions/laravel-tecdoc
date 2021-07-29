@@ -111,7 +111,7 @@ return [
 ## Usage
 
 - Manufacturers, [check out the manufacturers.md](docs/manufacturers.md)
-- Model series, [check out the manufacturers.md](docs/modelSeries.md)
+- Model series, [check out the modelSeries.md](docs/modelSeries.md)
 
 
 ```php
