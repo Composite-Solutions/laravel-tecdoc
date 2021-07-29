@@ -5,11 +5,11 @@
 #### Filter options:
 ```php
 $filter = [
-"lang" => "HU",  // default is in config file
-"linkingTargetId" => 26582, // Required (carId / motor id)
-"linkingTargetType" => "P",  // default is P (passenger car)
-"sort" => 1 // 1: by brand name, 2: by generic article name
-"barandNo" => [
+    "lang" => "HU",  // default is in config file
+    "linkingTargetId" => 26582, // Required (carId / motor id)
+    "linkingTargetType" => "P",  // default is P (passenger car)
+    "sort" => 1 // 1: by brand name, 2: by generic article name
+    "barandNo" => [
         5,
         347,
         432
