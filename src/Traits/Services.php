@@ -2,6 +2,7 @@
 
 namespace Composite\TecDoc\Traits;
 
+use Composite\TecDoc\Services\Articles;
 use Composite\TecDoc\Services\Manufacturers;
 use Composite\TecDoc\Services\ModelSeries;
 use Composite\TecDoc\Services\Vehicles;
@@ -30,5 +31,13 @@ trait Services
     public function vehicles(): Vehicles
     {
         return new Vehicles;
+    }
+
+    /**
+     * @return Articles
+     */
+    public function articles(): Articles
+    {
+        return new Articles;
     }
 }

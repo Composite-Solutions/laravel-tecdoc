@@ -66,7 +66,7 @@ class Vehicles
             "getVehicleIdsByCriteria" => [
                 "countriesCarSelection" => Config::get('tecdoc.country'),
                 "provider" => Config::get('tecdoc.provider_id'),
-                "carType" => $filter["linkingTargetType"] ?? "P",
+                "carType" => $filter["carType"] ?? "P",
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
                 "manuId" => $filter["manuId"],
                 "modId" => $filter["modId"]

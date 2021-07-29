@@ -14,6 +14,7 @@ use Composite\TecDoc\Gateway;
  * @method static Manufacturers manufacturers()
  * @method static ModelSeries modelSeries()
  * @method static Vehicles vehicles()
+ * @method static Articles articles()
  * 
  */
 class TecDoc extends Facade
