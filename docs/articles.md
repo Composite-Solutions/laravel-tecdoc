@@ -5,7 +5,7 @@
 #### Filter options:
 ```php
 $filter = [
-    "lang" => "HU",  // default is in config file
+    "lang" => "HU",  // default: config file
     "linkingTargetId" => 26582, // Required (carId / motor id)
     "linkingTargetType" => "P",  // default is P (passenger car)
     "sort" => 1 // 1: by brand name, 2: by generic article name
@@ -38,7 +38,7 @@ $filter = [
 ```php
 // Optional
 $filter = [
-    'lang' => 'HU',
+    'lang' => 'HU', // default: config file
     'attributs' => true,
     'basicData' => true,
     'documents' => true,
@@ -59,4 +59,28 @@ $filter = [
 ```
 ```php
 \TecDoc::articles()->find(int $articleId, array $filter = null)
+```
+## Find article by any number
+
+#### Filter options:
+```php
+// Optional
+$filter = [
+    'lang' => 'HU', // default: config file
+    'numberType' => 0, // default: 0 (article number)
+    'searchExact' => true, // default: true
+]
+    
+```
+#### NumberType options:
+- 0: Article number
+- 1: OE number
+- 2: Trade number
+- 3: Comparable number
+- 4: Replacement number
+- 5: Replaced number
+- 6: EAN number
+- 10: Any number
+```php
+\TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null)
 ```

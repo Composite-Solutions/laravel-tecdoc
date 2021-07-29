@@ -80,6 +80,36 @@ class Articles
     }
 
     /**
+     * Find article by any number
+     *
+     * $articleNumber = '7.03703.90.0'; // Required
+     * $filter = [ // optional
+     *  'lang' => 'HU',
+     *  'numberType' => 0,
+     *  'searchExact' => true,
+     * ]
+     * 
+     * numberType options:
+     *  0: Article number
+     *  1: OE number
+     *  2: Trade number
+     *  3: Comparable number
+     *  4: Replacement number
+     *  5: Replaced number
+     *  6: EAN number
+     *  10: Any number
+     * 
+     * @param  mixed $articleNumber
+     * @param  mixed $filter
+     * @return void
+     */
+    public function findByNumber(string $articleNumber, array $filter = null)
+    {
+        $response = TecDoc::post('', $this->createFindByNumberPayload($articleNumber, $filter));
+        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
+    }
+
+    /**
      * Create get ids request payload for API calls
      *
      * @param  array $filter
@@ -114,21 +144,34 @@ class Articles
                     ],
                 ],
                 'lang' => $filter["lang"] ?? Config::get('tecdoc.lang'),
-                'attributs' => $filter != null && isset($filter['attributs']) ? $filter['attributs'] : true,
-                'basicData' => $filter != null && isset($filter['basicData']) ? $filter['basicData'] : true,
-                'documents' => $filter != null && isset($filter['documents']) ? $filter['documents'] : true,
-                'eanNumbers' => $filter != null && isset($filter['eanNumbers']) ? $filter['eanNumbers'] : true,
-                'immediateAttributs' => $filter != null && isset($filter['immediateAttributs']) ? $filter['immediateAttributs'] : true,
-                'immediateInfo' => $filter != null && isset($filter['immediateInfo']) ? $filter['immediateInfo'] : true,
-                'info' => $filter != null && isset($filter['info']) ? $filter['info'] : true,
-                'mainArticles' => $filter != null && isset($filter['mainArticles']) ? $filter['mainArticles'] : true,
-                'normalAustauschPrice' => $filter != null && isset($filter['normalAustauschPrice']) ? $filter['normalAustauschPrice'] : false,
-                'oeNumbers' => $filter != null && isset($filter['oeNumbers']) ? $filter['oeNumbers'] : true,
-                'prices' => $filter != null && isset($filter['prices']) ? $filter['prices'] : true,
-                'replacedByNumbers' => $filter != null && isset($filter['replacedByNumbers']) ? $filter['replacedByNumbers'] : true,
-                'replacedNumbers' => $filter != null && isset($filter['replacedNumbers']) ? $filter['replacedNumbers'] : true,
-                'thumbnails' => $filter != null && isset($filter['thumbnails']) ? $filter['thumbnails'] : true,
-                'usageNumbers' => $filter != null && isset($filter['usageNumbers']) ? $filter['usageNumbers'] : true,
+                'attributs' => $filter['attributs'] ?? true,
+                'basicData' => $filter['basicData'] ?? true,
+                'documents' => $filter['documents'] ?? true,
+                'eanNumbers' => $filter['eanNumbers'] ?? true,
+                'immediateAttributs' => $filter['immediateAttributs'] ?? true,
+                'immediateInfo' => $filter['immediateInfo'] ?? true,
+                'info' => $filter['info'] ?? true,
+                'mainArticles' => $filter['mainArticles'] ?? true,
+                'normalAustauschPrice' => $filter['normalAustauschPrice'] ?? false,
+                'oeNumbers' => $filter['oeNumbers'] ?? true,
+                'prices' => $filter['prices'] ?? true,
+                'replacedByNumbers' => $filter['replacedByNumbers'] ?? true,
+                'replacedNumbers' => $filter['replacedNumbers'] ?? true,
+                'thumbnails' => $filter['thumbnails'] ?? true,
+                'usageNumbers' => $filter['usageNumbers'] ?? true,
+            ],
+        ];
+    }
+    public function createFindByNumberPayload(string $articleNumber, array $filter = null)
+    {
+        return [
+            'getArticleDirectSearchAllNumbersWithState' => [
+                'articleCountry' => Config::get('tecdoc.country'),
+                'provider' =>  Config::get('tecdoc.provider_id'),
+                'lang' => $filter["lang"] ?? Config::get('tecdoc.lang'),
+                'articleNumber' => $articleNumber,
+                'numberType' => $filter["numberType"] ?? 0,
+                'searchExact' => $filter["searchExact"] ?? true,
             ],
         ];
     }
