@@ -2,6 +2,7 @@
 
 namespace Composite\TecDoc;
 
+use Exception;
 use GuzzleHttp\Client;
 use InvalidArgumentException;
 
@@ -107,6 +108,10 @@ class Gateway
 
         $response = $this->client->request($method, $uri, array_merge($defaultOptions, $payload));
 
+        if(json_decode($response->getBody(), true)["status"] != 200){
+            throw new Exception(json_decode($response->getBody(), true)["statusText"]);
+        }
+        
         return json_decode($response->getBody(), true);
     }
 }

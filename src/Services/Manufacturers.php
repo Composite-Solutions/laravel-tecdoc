@@ -2,7 +2,10 @@
 
 namespace Composite\TecDoc\Services;
 
+use Composite\TecDoc\Collections\ManufacturerCollection;
+use Composite\TecDoc\DTOs\ManufacturerDTO;
 use Composite\TecDoc\Facades\TecDoc;
+use Exception;
 use Illuminate\Support\Facades\Config;
 
 class Manufacturers
@@ -10,12 +13,13 @@ class Manufacturers
     /**
      * Get all passenger car manufacturers
      *
-     * @return array
+     * @return ManufacturerCollection
      */
     public function all(): array
     {
-        $response = TecDoc::post('',$this->createPayload());
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
+        $response = TecDoc::post('', $this->createPayload());
+        return (new ManufacturerDTO())->mapManufacturerCollection($response);
+        // return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
 
     /**
@@ -38,10 +42,10 @@ class Manufacturers
      */
     public function filter(array $filter): array
     {
-        $response = TecDoc::post('',$this->createPayload($filter));
+        $response = TecDoc::post('', $this->createPayload($filter));
         return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
-    
+
     /**
      * Create request payload for API calls
      *
