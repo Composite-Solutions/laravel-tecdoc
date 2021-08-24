@@ -15,7 +15,17 @@ class ArticleAttributeDTO
     public function createArticleAttributeModel(array $articleAttributeArray) : ArticleAttribute
     {
         $articleAttribute = new ArticleAttribute();
-        $articleAttribute->setAttrBlockNo($articleAttributeArray['attrBlockNo']);
+        $articleAttribute->setAttrBlockNo($articleAttributeArray['attrBlockNo'] ?? null);
+        $articleAttribute->setAttrId($articleAttributeArray['attrId'] ?? null);
+        $articleAttribute->setAttrIsConditional($articleAttributeArray['attrIsConditional'] ?? null);
+        $articleAttribute->setAttrIsInterval($articleAttributeArray['attrIsInterval'] ?? null);
+        $articleAttribute->setAttrIsLinked($articleAttributeArray['attrIsLinked'] ?? null);
+        $articleAttribute->setAttrName($articleAttributeArray['attrName'] ?? null);
+        $articleAttribute->setAttrShortName($articleAttributeArray['attrShortName'] ?? null);
+        $articleAttribute->setAttrType($articleAttributeArray['attrType'] ?? null);
+        $articleAttribute->setAttrUnit($articleAttributeArray['attrUnit'] ?? null);
+        $articleAttribute->setAttrValue($articleAttributeArray['attrValue'] ?? null);
+        $articleAttribute->setAttrValueId($articleAttributeArray['attrValueId'] ?? null);
         return $articleAttribute;
     }
 
