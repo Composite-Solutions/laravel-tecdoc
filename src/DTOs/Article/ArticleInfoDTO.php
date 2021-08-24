@@ -16,14 +16,14 @@ class ArticleInfoDTO
     {
         $articleInfo = new ArticleInfo();
         $articleInfo->setInfoId($articleInfoArray['infoId'] ?? null);
-        $articleInfo->setInfoText($articleInfoArray['infoText'] ?? null);
+        $articleInfo->setInfoText(strip_tags($articleInfoArray['infoText'] ?? null));
         $articleInfo->setInfoType($articleInfoArray['infoType'] ?? null);
         $articleInfo->setInfoTypeName($articleInfoArray['infoTypeName'] ?? null);
         return $articleInfo;
     }
 
     /**
-     * Map article documents array to array of article document models
+     * Map article info array to array of article info models
      *
      * @param  array $data
      * @return array

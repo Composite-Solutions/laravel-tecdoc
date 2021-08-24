@@ -2,7 +2,9 @@
 
 namespace Composite\TecDoc\Models\Article;
 
-class ArticleInfo
+use Composite\TecDoc\Models\Model;
+
+class ArticleInfo extends Model
 {
     /**
      * Article info Id
