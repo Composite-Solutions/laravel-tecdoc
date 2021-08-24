@@ -35,11 +35,18 @@ class Article extends Model
     public array $articleThumbnails;
 
     /**
-     * Article thumnail array
+     * Direct article infos
      *
      * @var DirectArticle
      */
     public DirectArticle $directArticle;
+
+    /**
+     * Article ean number array
+     *
+     * @var array
+     */
+    public array $eanNumber;
     
         
     /**
@@ -155,6 +162,30 @@ class Article extends Model
     public function setDirectArticle(DirectArticle $directArticle)
     {
         $this->directArticle = $directArticle;
+
+        return $this;
+    }
+
+    /**
+     * Get article ean number array
+     *
+     * @return  array
+     */ 
+    public function getEanNumber()
+    {
+        return $this->eanNumber;
+    }
+
+    /**
+     * Set article ean number array
+     *
+     * @param  array  $eanNumber  Article ean number array
+     *
+     * @return  self
+     */ 
+    public function setEanNumber(array $eanNumber)
+    {
+        $this->eanNumber = $eanNumber;
 
         return $this;
     }

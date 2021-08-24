@@ -22,6 +22,7 @@ class ArticleDTO
         // TODO articlePrices implementation, DTO and others
         $article->setArticleThumbnails((new ArticleThumbnailDTO())->mapArticleThumbnailCollection($articleArray));
         $article->setDirectArticle((new DirectArticleDTO())->createDirectArticleModel($articleArray));
+        $article->setEanNumber((new EanNumberDTO())->mapEanNumberCollection($articleArray));
         return $article;
     }
         
