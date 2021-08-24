@@ -5,7 +5,6 @@ namespace Composite\TecDoc\Services;
 use Composite\TecDoc\Collections\ManufacturerCollection;
 use Composite\TecDoc\DTOs\ManufacturerDTO;
 use Composite\TecDoc\Facades\TecDoc;
-use Exception;
 use Illuminate\Support\Facades\Config;
 
 class Manufacturers
@@ -18,8 +17,7 @@ class Manufacturers
     public function all(): array
     {
         $response = TecDoc::post('', $this->createPayload());
-        return (new ManufacturerDTO())->mapManufacturerCollection($response);
-        // return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
+        return (new ManufacturerDTO())->mapManufacturerCollection($response)->toArray();
     }
 
     /**
@@ -43,7 +41,7 @@ class Manufacturers
     public function filter(array $filter): array
     {
         $response = TecDoc::post('', $this->createPayload($filter));
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
+        return (new ManufacturerDTO())->mapManufacturerCollection($response)->toArray();
     }
 
     /**
