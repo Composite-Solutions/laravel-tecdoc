@@ -3,7 +3,6 @@
 namespace Composite\TecDoc\DTOs\Article;
 
 use Composite\TecDoc\Models\Article\Article;
-use Composite\TecDoc\Models\Article\ArticleAttribute;
 
 class ArticleDTO
 {        
@@ -22,6 +21,7 @@ class ArticleDTO
         $article->setArticleInfo((new ArticleInfoDTO())->mapArticleInfoCollection($articleArray));
         // TODO articlePrices implementation, DTO and others
         $article->setArticleThumbnails((new ArticleThumbnailDTO())->mapArticleThumbnailCollection($articleArray));
+        $article->setDirectArticle((new DirectArticleDTO())->createDirectArticleModel($articleArray));
         return $article;
     }
         

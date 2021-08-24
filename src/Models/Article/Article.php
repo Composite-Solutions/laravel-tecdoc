@@ -33,6 +33,13 @@ class Article extends Model
      * @var array
      */
     public array $articleThumbnails;
+
+    /**
+     * Article thumnail array
+     *
+     * @var DirectArticle
+     */
+    public DirectArticle $directArticle;
     
         
     /**
@@ -124,6 +131,30 @@ class Article extends Model
     public function setArticleThumbnails(array $articleThumbnails)
     {
         $this->articleThumbnails = $articleThumbnails;
+
+        return $this;
+    }
+
+    /**
+     * Get article thumnail array
+     *
+     * @return  DirectArticle
+     */ 
+    public function getDirectArticle()
+    {
+        return $this->directArticle;
+    }
+
+    /**
+     * Set article thumnail array
+     *
+     * @param  DirectArticle  $directArticle  Article thumnail array
+     *
+     * @return  self
+     */ 
+    public function setDirectArticle(DirectArticle $directArticle)
+    {
+        $this->directArticle = $directArticle;
 
         return $this;
     }
