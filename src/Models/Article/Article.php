@@ -20,6 +20,13 @@ class Article extends Model
      */
     public array $articleDocuments;
     
+    /**
+     * Article Info array
+     *
+     * @var array
+     */
+    public array $articleInfo;
+    
         
     /**
      * Get article attributes
@@ -62,6 +69,30 @@ class Article extends Model
     public function setArticleDocuments(array $articleDocuments)
     {
         $this->articleDocuments = $articleDocuments;
+
+        return $this;
+    }
+
+    /**
+     * Get article Info array
+     *
+     * @return  array
+     */ 
+    public function getArticleInfo()
+    {
+        return $this->articleInfo;
+    }
+
+    /**
+     * Set article Info array
+     *
+     * @param  array  $articleInfo  Article Info array
+     *
+     * @return  self
+     */ 
+    public function setArticleInfo(array $articleInfo)
+    {
+        $this->articleInfo = $articleInfo;
 
         return $this;
     }
