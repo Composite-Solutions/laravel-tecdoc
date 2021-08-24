@@ -1,6 +1,6 @@
 <?php
 
-namespace Composite\TecDoc\Models;
+namespace Composite\TecDoc\Models\Manufacturer;
 
 class Manufacturer
 {    

@@ -1,8 +1,8 @@
 <?php
 
-namespace Composite\TecDoc\Collections;
+namespace Composite\TecDoc\Collections\Manufacturer;
 
-use Composite\TecDoc\Models\Manufacturer;
+use Composite\TecDoc\Models\Manufacturer\Manufacturer;
 
 class ManufacturerCollection
 {

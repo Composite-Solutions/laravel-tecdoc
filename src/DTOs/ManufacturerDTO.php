@@ -2,8 +2,8 @@
 
 namespace Composite\TecDoc\DTOs;
 
-use Composite\TecDoc\Collections\ManufacturerCollection;
-use Composite\TecDoc\Models\Manufacturer;
+use Composite\TecDoc\Collections\Manufacturer\ManufacturerCollection;
+use Composite\TecDoc\Models\Manufacturer\Manufacturer;
 
 class ManufacturerDTO
 {    

@@ -2,7 +2,9 @@
 
 namespace Composite\TecDoc\Services;
 
+use Composite\TecDoc\DTOs\ArticleDTO;
 use Composite\TecDoc\Facades\TecDoc;
+use Composite\TecDoc\Models\Article\Article;
 use Illuminate\Support\Facades\Config;
 
 class Articles
@@ -71,11 +73,12 @@ class Articles
      *
      * @param  int $articleId
      * @param  array $filter
-     * @return array
+     * @return Article
      */
-    public function find(int $articleId, array $filter = null): array
+    public function find(int $articleId, array $filter = null) : Article
     {
         $response = TecDoc::post('', $this->createFindPayload($articleId, $filter));
+        return (new ArticleDTO())->createArticleModel($response);
         return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
 
