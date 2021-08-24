@@ -47,6 +47,13 @@ class Article extends Model
      * @var array
      */
     public array $eanNumber;
+
+    /**
+     * Article immediate attributs
+     *
+     * @var array
+     */
+    public array $immediateAttributs;
     
         
     /**
@@ -186,6 +193,30 @@ class Article extends Model
     public function setEanNumber(array $eanNumber)
     {
         $this->eanNumber = $eanNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get article immediate attributs
+     *
+     * @return  array
+     */ 
+    public function getImmediateAttributs()
+    {
+        return $this->immediateAttributs;
+    }
+
+    /**
+     * Set article immediate attributs
+     *
+     * @param  array  $immediateAttributs  Article immediate attributs
+     *
+     * @return  self
+     */ 
+    public function setImmediateAttributs(array $immediateAttributs)
+    {
+        $this->immediateAttributs = $immediateAttributs;
 
         return $this;
     }
