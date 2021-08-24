@@ -29,7 +29,7 @@ class ManufacturerCollection
      * @param  mixed $manufacturer
      * @return void
      */
-    public function add(Manufacturer $manufacturer)
+    public function add(Manufacturer $manufacturer) : void
     {
         array_push($this->_manufacturers, $manufacturer);
     }    

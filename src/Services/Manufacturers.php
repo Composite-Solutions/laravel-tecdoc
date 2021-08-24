@@ -3,7 +3,7 @@
 namespace Composite\TecDoc\Services;
 
 use Composite\TecDoc\Collections\ManufacturerCollection;
-use Composite\TecDoc\DTOs\ManufacturerDTO;
+use Composite\TecDoc\DTOs\Manufacturer\ManufacturerDTO;
 use Composite\TecDoc\Facades\TecDoc;
 use Illuminate\Support\Facades\Config;
 

@@ -2,7 +2,9 @@
 
 namespace Composite\TecDoc\Models\Manufacturer;
 
-class Manufacturer
+use Composite\TecDoc\Models\Model;
+
+class Manufacturer extends Model
 {    
     /**
      * Manufacturer ID

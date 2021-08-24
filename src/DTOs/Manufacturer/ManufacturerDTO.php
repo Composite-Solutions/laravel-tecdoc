@@ -1,6 +1,6 @@
 <?php
 
-namespace Composite\TecDoc\DTOs;
+namespace Composite\TecDoc\DTOs\Manufacturer;
 
 use Composite\TecDoc\Collections\Manufacturer\ManufacturerCollection;
 use Composite\TecDoc\Models\Manufacturer\Manufacturer;

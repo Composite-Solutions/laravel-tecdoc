@@ -2,12 +2,12 @@
 
 namespace Composite\TecDoc\Models\Article;
 
-use Composite\TecDoc\Collections\Article\ArticleAttributeCollection;
+use Composite\TecDoc\Models\Model;
 
-class Article
+class Article extends Model
 {    
     /**
-     * Manufacturer ID
+     * Article attributes array
      *
      * @var array
      */
@@ -27,10 +27,10 @@ class Article
     /**
      * Set article attributes
      *
-     * @param  array $manuId
+     * @param  array $articleAttributes
      * @return void
      */
-    public function setArticleAttributes(array $articleAttributes)
+    public function setArticleAttributes(array $articleAttributes) : void
     {
         $this->articleAttributes = $articleAttributes;
     }

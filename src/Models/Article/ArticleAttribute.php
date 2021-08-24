@@ -23,12 +23,12 @@ class ArticleAttribute
     }    
     
     /**
-     * Set article attributes
+     * Set article block number
      *
-     * @param  int $manuId
+     * @param  int $attrBlockNo
      * @return void
      */
-    public function setAttrBlockNo(int $attrBlockNo)
+    public function setAttrBlockNo(int $attrBlockNo) : void
     {
         $this->attrBlockNo = $attrBlockNo;
     }    

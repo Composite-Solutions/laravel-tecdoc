@@ -2,7 +2,7 @@
 
 namespace Composite\TecDoc\Services;
 
-use Composite\TecDoc\DTOs\ArticleDTO;
+use Composite\TecDoc\DTOs\Article\ArticleDTO;
 use Composite\TecDoc\Facades\TecDoc;
 use Composite\TecDoc\Models\Article\Article;
 use Illuminate\Support\Facades\Config;
@@ -79,7 +79,6 @@ class Articles
     {
         $response = TecDoc::post('', $this->createFindPayload($articleId, $filter));
         return (new ArticleDTO())->createArticleModel($response);
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
 
     /**
