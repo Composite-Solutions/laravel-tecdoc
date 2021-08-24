@@ -27,6 +27,13 @@ class Article extends Model
      */
     public array $articleInfo;
     
+    /**
+     * Article thumnail array
+     *
+     * @var array
+     */
+    public array $articleThumbnails;
+    
         
     /**
      * Get article attributes
@@ -93,6 +100,30 @@ class Article extends Model
     public function setArticleInfo(array $articleInfo)
     {
         $this->articleInfo = $articleInfo;
+
+        return $this;
+    }
+
+    /**
+     * Get article thumnail array
+     *
+     * @return  array
+     */ 
+    public function getArticleThumbnails()
+    {
+        return $this->articleThumbnails;
+    }
+
+    /**
+     * Set article thumnail array
+     *
+     * @param  array  $articleThumbnails  Article thumnail array
+     *
+     * @return  self
+     */ 
+    public function setArticleThumbnails(array $articleThumbnails)
+    {
+        $this->articleThumbnails = $articleThumbnails;
 
         return $this;
     }

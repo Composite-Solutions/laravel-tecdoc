@@ -20,6 +20,8 @@ class ArticleDTO
         $article->setArticleAttributes((new ArticleAttributeDTO())->mapArticleAttributeCollection($articleArray));
         $article->setArticleDocuments((new ArticleDocumentDTO())->mapArticleDocumentCollection($articleArray));
         $article->setArticleInfo((new ArticleInfoDTO())->mapArticleInfoCollection($articleArray));
+        // TODO articlePrices implementation, DTO and others
+        $article->setArticleThumbnails((new ArticleThumbnailDTO())->mapArticleThumbnailCollection($articleArray));
         return $article;
     }
         
