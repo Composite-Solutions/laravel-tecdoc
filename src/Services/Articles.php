@@ -75,7 +75,7 @@ class Articles
      * @param  array $filter
      * @return Article
      */
-    public function find(int $articleId, array $filter = null) : Article
+    public function find(int $articleId, array $filter = null)
     {
         $response = TecDoc::post('', $this->createFindPayload($articleId, $filter));
         return (new ArticleDTO())->createArticleModel($response);

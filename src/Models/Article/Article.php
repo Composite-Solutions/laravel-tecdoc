@@ -11,49 +11,56 @@ class Article extends Model
      *
      * @var array
      */
-    public array $articleAttributes;
+    public ?array $articleAttributes;
 
     /**
      * Article Documents array
      *
      * @var array
      */
-    public array $articleDocuments;
+    public ?array $articleDocuments;
     
     /**
      * Article Info array
      *
      * @var array
      */
-    public array $articleInfo;
+    public ?array $articleInfo;
     
     /**
      * Article thumnail array
      *
      * @var array
      */
-    public array $articleThumbnails;
+    public ?array $articleThumbnails;
 
     /**
      * Direct article infos
      *
      * @var DirectArticle
      */
-    public DirectArticle $directArticle;
+    public ?DirectArticle $directArticle;
 
     /**
      * Article ean number array
      *
      * @var array
      */
-    public array $eanNumber;
+    public ?array $eanNumber;
 
     /**
      * Article immediate attributs
      *
      * @var array
      */
-    public array $immediateAttributs;
+    public ?array $immediateAttributs;
+
+    /**
+     * Article oenNumbers
+     *
+     * @var array
+     */
+    public ?array $oenNumbers;
     
         
     /**
@@ -72,7 +79,7 @@ class Article extends Model
      * @param  array $articleAttributes
      * @return void
      */
-    public function setArticleAttributes(array $articleAttributes) : void
+    public function setArticleAttributes(array $articleAttributes = null) : void
     {
         $this->articleAttributes = $articleAttributes;
     }
@@ -94,7 +101,7 @@ class Article extends Model
      *
      * @return  self
      */ 
-    public function setArticleDocuments(array $articleDocuments)
+    public function setArticleDocuments(array $articleDocuments = null)
     {
         $this->articleDocuments = $articleDocuments;
 
@@ -118,7 +125,7 @@ class Article extends Model
      *
      * @return  self
      */ 
-    public function setArticleInfo(array $articleInfo)
+    public function setArticleInfo(array $articleInfo = null)
     {
         $this->articleInfo = $articleInfo;
 
@@ -142,7 +149,7 @@ class Article extends Model
      *
      * @return  self
      */ 
-    public function setArticleThumbnails(array $articleThumbnails)
+    public function setArticleThumbnails(array $articleThumbnails = null)
     {
         $this->articleThumbnails = $articleThumbnails;
 
@@ -166,7 +173,7 @@ class Article extends Model
      *
      * @return  self
      */ 
-    public function setDirectArticle(DirectArticle $directArticle)
+    public function setDirectArticle(DirectArticle $directArticle = null)
     {
         $this->directArticle = $directArticle;
 
@@ -190,7 +197,7 @@ class Article extends Model
      *
      * @return  self
      */ 
-    public function setEanNumber(array $eanNumber)
+    public function setEanNumber(array $eanNumber = null)
     {
         $this->eanNumber = $eanNumber;
 
@@ -214,9 +221,33 @@ class Article extends Model
      *
      * @return  self
      */ 
-    public function setImmediateAttributs(array $immediateAttributs)
+    public function setImmediateAttributs(array $immediateAttributs = null)
     {
         $this->immediateAttributs = $immediateAttributs;
+
+        return $this;
+    }
+
+    /**
+     * Get article oenNumbers
+     *
+     * @return  array
+     */ 
+    public function getOenNumbers()
+    {
+        return $this->oenNumbers;
+    }
+
+    /**
+     * Set article oenNumbers
+     *
+     * @param  array  $oenNumbers  Article oenNumbers
+     *
+     * @return  self
+     */ 
+    public function setOenNumbers(array $oenNumbers)
+    {
+        $this->oenNumbers = $oenNumbers;
 
         return $this;
     }

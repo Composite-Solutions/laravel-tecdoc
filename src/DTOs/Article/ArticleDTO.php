@@ -24,6 +24,12 @@ class ArticleDTO
         $article->setDirectArticle((new DirectArticleDTO())->createDirectArticleModel($articleArray));
         $article->setEanNumber((new EanNumberDTO())->mapEanNumberCollection($articleArray));
         $article->setImmediateAttributs((new ImmediateAttributDTO())->mapImmediateAttributCollection($articleArray));
+        // TODO immediateInfo implementation, DTO and others
+        // TODO mainArticle implementation, DTO and others
+        $article->setOenNumbers((new OenNumberDto())->mapOenNumberCollection($articleArray));
+        // TODO replacedByNumber implementation, DTO and others
+        // TODO replacedNumber implementation, DTO and others
+        // TODO usageNumbers2 implementation, DTO and others
         return $article;
     }
         

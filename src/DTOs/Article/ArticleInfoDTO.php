@@ -12,7 +12,7 @@ class ArticleInfoDTO
      * @param  array $articleInfoArray
      * @return ArticleInfo
      */
-    public function createArticleInfoModel(array $articleInfoArray) : ArticleInfo
+    public function createArticleInfoModel(array $articleInfoArray): ArticleInfo
     {
         $articleInfo = new ArticleInfo();
         $articleInfo->setInfoId($articleInfoArray['infoId'] ?? null);
@@ -28,12 +28,14 @@ class ArticleInfoDTO
      * @param  array $data
      * @return array
      */
-    public function mapArticleInfoCollection(array $data) : array
+    public function mapArticleInfoCollection(array $data): array
     {
         if (isset($data["data"]) && $data["data"]) {
             $articleInfos = [];
-            foreach ($data["data"]["array"][0]['articleInfo']['array'] as $articleInfo) {
-                array_push($articleInfos, $this->createArticleInfoModel($articleInfo));
+            if (isset($data["data"]["array"][0]['articleInfo']['array'])) {
+                foreach ($data["data"]["array"][0]['articleInfo']['array'] as $articleInfo) {
+                    array_push($articleInfos, $this->createArticleInfoModel($articleInfo));
+                }
             }
             return $articleInfos;
         }

@@ -108,10 +108,14 @@ class Gateway
 
         $response = $this->client->request($method, $uri, array_merge($defaultOptions, $payload));
 
-        if(json_decode($response->getBody(), true)["status"] != 200){
-            throw new Exception(json_decode($response->getBody(), true)["statusText"]);
+        if (json_decode($response->getBody(), true)["status"]) {
+            if(json_decode($response->getBody(), true)["status"] != 200){
+                throw new Exception(json_decode($response->getBody(), true)["statusText"]);
+            } else if(json_decode($response->getBody(), true)["data"] == ""){
+                throw new Exception("Empty response");
+            }
         }
-        
+            
         return json_decode($response->getBody(), true);
     }
 }
