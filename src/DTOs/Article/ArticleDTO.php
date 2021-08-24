@@ -17,9 +17,8 @@ class ArticleDTO
     public function createArticleModel(array $articleArray) : Article
     {
         $article = new Article();
-        $article->setArticleAttributes(
-            (new ArticleAttributeDTO())->mapArticleAttributeCollection($articleArray)
-        );
+        $article->setArticleAttributes((new ArticleAttributeDTO())->mapArticleAttributeCollection($articleArray));
+        $article->setArticleDocuments((new ArticleDocumentDTO())->mapArticleDocumentCollection($articleArray));
         return $article;
     }
         
