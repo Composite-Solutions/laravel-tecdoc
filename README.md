@@ -17,7 +17,7 @@
 
 You can install the package via [Composer](https://getcomposer.org/)
 ```bash
-$ composer require composite/laravel-tecdoc
+composer require composite/laravel-tecdoc
 ```
 
 In Laravel 5.5 or above the service provider will automatically get registered. In older versions of the framework just add the service provider in `config/app.php` file:
@@ -40,7 +40,7 @@ In Laravel 5.5 or above the service provider will automatically get registered. 
 
 You can publish the config file with:
 ```bash
-$ php artisan vendor:publish --provider="Composite\TecDoc\TecDocServiceProvider" --tag=config
+php artisan vendor:publish --provider="Composite\TecDoc\TecDocServiceProvider" --tag=config
 ```
 
 When published, [the `config/tecdoc.php` config](config/tecdoc.php) file contains:
@@ -145,7 +145,7 @@ TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
 ## Testing
 
 ``` bash
-$ composer lint
+composer lint
 ```
 
 ## Contributing
