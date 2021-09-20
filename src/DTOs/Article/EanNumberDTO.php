@@ -12,7 +12,7 @@ class EanNumberDTO
      * @param  array $eanNumberArray
      * @return EanNumber
      */
-    public function createEanNumberModel(array $eanNumberArray) : EanNumber
+    public function createEanNumberModel(array $eanNumberArray): EanNumber
     {
         $eanNumber = new EanNumber();
         $eanNumber->setEanNumber($eanNumberArray['eanNumber'] ?? null);
@@ -25,12 +25,14 @@ class EanNumberDTO
      * @param  array $data
      * @return array
      */
-    public function mapEanNumberCollection(array $data) : array
+    public function mapEanNumberCollection(array $data): array
     {
         if (isset($data["data"]) && $data["data"]) {
             $eanNumbers = [];
-            foreach ($data["data"]["array"][0]['eanNumber']['array'] as $eanNumber) {
-                array_push($eanNumbers, $this->createEanNumberModel($eanNumber));
+            if (isset($data["data"]["array"][0]['eanNumber']) && $data["data"]["array"][0]['eanNumber']) {
+                foreach ($data["data"]["array"][0]['eanNumber']['array'] as $eanNumber) {
+                    array_push($eanNumbers, $this->createEanNumberModel($eanNumber));
+                }
             }
             return $eanNumbers;
         }

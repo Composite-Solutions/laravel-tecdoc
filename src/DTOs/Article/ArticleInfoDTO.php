@@ -32,7 +32,7 @@ class ArticleInfoDTO
     {
         if (isset($data["data"]) && $data["data"]) {
             $articleInfos = [];
-            if (isset($data["data"]["array"][0]['articleInfo']['array'])) {
+            if (isset($data["data"]["array"][0]['articleInfo']) && $data["data"]["array"][0]['articleInfo']) {
                 foreach ($data["data"]["array"][0]['articleInfo']['array'] as $articleInfo) {
                     array_push($articleInfos, $this->createArticleInfoModel($articleInfo));
                 }

@@ -108,7 +108,7 @@ class Articles
     public function findByNumber(string $articleNumber, array $filter = null)
     {
         $response = TecDoc::post('', $this->createFindByNumberPayload($articleNumber, $filter));
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
+        return (new ArticleDTO())->mapArticleCollection($response);
     }
 
     /**

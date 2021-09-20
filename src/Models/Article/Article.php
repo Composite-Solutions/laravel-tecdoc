@@ -61,6 +61,13 @@ class Article extends Model
      * @var array
      */
     public ?array $oenNumbers;
+
+    /**
+     * Article oenNumbers
+     *
+     * @var array
+     */
+    public ?array $usageNumbers;
     
         
     /**
@@ -248,6 +255,30 @@ class Article extends Model
     public function setOenNumbers(array $oenNumbers)
     {
         $this->oenNumbers = $oenNumbers;
+
+        return $this;
+    }
+
+    /**
+     * Get article usageNumbers
+     *
+     * @return  array
+     */ 
+    public function getUsageNumbers()
+    {
+        return $this->usageNumbers;
+    }
+
+    /**
+     * Set article usageNumbers
+     *
+     * @param  array  $usageNumbers  Article usageNumbers
+     *
+     * @return  self
+     */ 
+    public function setUsageNumbers(array $usageNumbers)
+    {
+        $this->usageNumbers = $usageNumbers;
 
         return $this;
     }

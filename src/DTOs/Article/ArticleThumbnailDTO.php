@@ -12,7 +12,7 @@ class ArticleThumbnailDTO
      * @param  array $articleThumbnailArray
      * @return ArticleThumbnail
      */
-    public function createArticleThumbnailModel(array $articleThumbnailArray) : ArticleThumbnail
+    public function createArticleThumbnailModel(array $articleThumbnailArray): ArticleThumbnail
     {
         $articleThumbnail = new ArticleThumbnail();
         $articleThumbnail->setthumbDocId($articleThumbnailArray['thumbDocId'] ?? null);
@@ -27,12 +27,14 @@ class ArticleThumbnailDTO
      * @param  array $data
      * @return array
      */
-    public function mapArticleThumbnailCollection(array $data) : array
+    public function mapArticleThumbnailCollection(array $data): array
     {
         if (isset($data["data"]) && $data["data"]) {
             $articleThumbnails = [];
-            foreach ($data["data"]["array"][0]['articleThumbnails']['array'] as $articleThumbnail) {
-                array_push($articleThumbnails, $this->createArticleThumbnailModel($articleThumbnail));
+            if (isset($data["data"]["array"][0]['articleThumbnails']) && $data["data"]["array"][0]['articleThumbnails']) {
+                foreach ($data["data"]["array"][0]['articleThumbnails']['array'] as $articleThumbnail) {
+                    array_push($articleThumbnails, $this->createArticleThumbnailModel($articleThumbnail));
+                }
             }
             return $articleThumbnails;
         }

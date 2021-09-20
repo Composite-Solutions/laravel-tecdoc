@@ -12,7 +12,7 @@ class ArticleDocumentDTO
      * @param  array $articleDocumentArray
      * @return ArticleDocument
      */
-    public function createArticleDocumentModel(array $articleDocumentArray) : ArticleDocument
+    public function createArticleDocumentModel(array $articleDocumentArray): ArticleDocument
     {
         $articleDocument = new ArticleDocument();
         $articleDocument->setDocFileName($articleDocumentArray['docFileName'] ?? null);
@@ -29,12 +29,14 @@ class ArticleDocumentDTO
      * @param  array $data
      * @return array
      */
-    public function mapArticleDocumentCollection(array $data) : array
+    public function mapArticleDocumentCollection(array $data): array
     {
         if (isset($data["data"]) && $data["data"]) {
             $articleDocuments = [];
-            foreach ($data["data"]["array"][0]['articleDocuments']['array'] as $articleDocument) {
-                array_push($articleDocuments, $this->createArticleDocumentModel($articleDocument));
+            if (isset($data["data"]["array"][0]['articleDocuments']) && $data["data"]["array"][0]['articleDocuments']) {
+                foreach ($data["data"]["array"][0]['articleDocuments']['array'] as $articleDocument) {
+                    array_push($articleDocuments, $this->createArticleDocumentModel($articleDocument));
+                }
             }
             return $articleDocuments;
         }

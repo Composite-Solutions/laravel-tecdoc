@@ -12,7 +12,7 @@ class ImmediateAttributDTO
      * @param  array $eanNumberArray
      * @return ImmediateAttribut
      */
-    public function createImmediateAttributModel(array $immediateAttributArray) : ImmediateAttribut
+    public function createImmediateAttributModel(array $immediateAttributArray): ImmediateAttribut
     {
         $immediateAttribut = new ImmediateAttribut();
         $immediateAttribut->setAttrBlockNo($immediateAttributArray['attrBlockNo'] ?? null);
@@ -35,12 +35,14 @@ class ImmediateAttributDTO
      * @param  array $data
      * @return array
      */
-    public function mapImmediateAttributCollection(array $data) : array
+    public function mapImmediateAttributCollection(array $data): array
     {
         if (isset($data["data"]) && $data["data"]) {
             $immediateAttributs = [];
-            foreach ($data["data"]["array"][0]['immediateAttributs']['array'] as $immediateAttribut) {
-                array_push($immediateAttributs, $this->createImmediateAttributModel($immediateAttribut));
+            if (isset($data["data"]["array"][0]['immediateAttributs']) && $data["data"]["array"][0]['immediateAttributs']) {
+                foreach ($data["data"]["array"][0]['immediateAttributs']['array'] as $immediateAttribut) {
+                    array_push($immediateAttributs, $this->createImmediateAttributModel($immediateAttribut));
+                }
             }
             return $immediateAttributs;
         }
