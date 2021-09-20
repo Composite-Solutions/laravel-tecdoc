@@ -114,6 +114,7 @@ return [
 - Model series, [check out the modelSeries.md](docs/modelSeries.md)
 - Vehicles, [check out the vehicles.md](docs/vehicles.md)
 - Articles, [check out the articles.md](docs/articles.md)
+- Addresses, [check out the articles.md](docs/addresses.md)
 
 
 ```php
@@ -140,6 +141,8 @@ TecDoc::articles()->ids(array $filter);
 TecDoc::articles()->find(int $articleId, array $filter = null);
 
 TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
+
+TecDoc::addresses()->add(string $address, int $validityHours = null);
 ```
     
 ## Testing

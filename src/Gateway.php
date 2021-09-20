@@ -111,7 +111,7 @@ class Gateway
         if (json_decode($response->getBody(), true)["status"]) {
             if(json_decode($response->getBody(), true)["status"] != 200){
                 throw new Exception(json_decode($response->getBody(), true)["statusText"]);
-            } else if(json_decode($response->getBody(), true)["data"] == ""){
+            } else if(isset(json_decode($response->getBody(), true)["data"]) &&  json_decode($response->getBody(), true)["data"] == ""){
                 throw new Exception("Empty response");
             }
         }

@@ -2,6 +2,7 @@
 
 namespace Composite\TecDoc\Traits;
 
+use Composite\TecDoc\Services\Addresses;
 use Composite\TecDoc\Services\Articles;
 use Composite\TecDoc\Services\Manufacturers;
 use Composite\TecDoc\Services\ModelSeries;
@@ -39,5 +40,13 @@ trait Services
     public function articles(): Articles
     {
         return new Articles;
+    }
+
+    /**
+     * @return Addresses
+     */
+    public function addresses(): Addresses
+    {
+        return new Addresses;
     }
 }
