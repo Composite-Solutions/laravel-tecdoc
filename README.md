@@ -115,6 +115,7 @@ return [
 - Vehicles, [check out the vehicles.md](docs/vehicles.md)
 - Articles, [check out the articles.md](docs/articles.md)
 - Addresses, [check out the articles.md](docs/addresses.md)
+- AssemblyGroups, [check out the assemblyGroups.md](docs/assemblyGroups.md)
 
 
 ```php
@@ -143,6 +144,8 @@ TecDoc::articles()->find(int $articleId, array $filter = null);
 TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
 
 TecDoc::addresses()->add(string $address, int $validityHours = null);
+
+TecDoc::assemblyGroups()->filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null);
 ```
     
 ## Testing
