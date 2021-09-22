@@ -2,7 +2,9 @@
 
 namespace Composite\TecDoc\Models\Article;
 
-class EanNumber
+use Composite\TecDoc\Models\Model;
+
+class EanNumber extends Model
 {
     /**
      * Article Ean number
@@ -28,7 +30,7 @@ class EanNumber
      *
      * @return  self
      */ 
-    public function setEanNumber(string $eanNumber)
+    public function setEanNumber(string $eanNumber = null)
     {
         $this->eanNumber = $eanNumber;
 

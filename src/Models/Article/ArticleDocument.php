@@ -2,7 +2,9 @@
 
 namespace Composite\TecDoc\Models\Article;
 
-class ArticleDocument
+use Composite\TecDoc\Models\Model;
+
+class ArticleDocument extends Model
 {
     /**
      * Document file name

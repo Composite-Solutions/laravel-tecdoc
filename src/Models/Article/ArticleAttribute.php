@@ -2,7 +2,9 @@
 
 namespace Composite\TecDoc\Models\Article;
 
-class ArticleAttribute
+use Composite\TecDoc\Models\Model;
+
+class ArticleAttribute extends Model
 {    
     /**
      * Attribute block number

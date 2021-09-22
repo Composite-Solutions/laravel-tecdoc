@@ -2,7 +2,9 @@
 
 namespace Composite\TecDoc\Models\Article;
 
-class ImmediateAttribut
+use Composite\TecDoc\Models\Model;
+
+class ImmediateAttribut extends Model
 {
 
     
