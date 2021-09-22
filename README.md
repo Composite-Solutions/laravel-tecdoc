@@ -132,9 +132,9 @@ TecDoc::manufacturers()->filter(array $filter);
 
 TecDoc::modelSeries()->filter(array $filter);
 
-TecDoc::vehicles()->ids(array $filter);
+TecDoc::vehicles()->find(int $carId, array $filter = null);
 
-TecDoc::vehicles()->filter(array $filter);
+TecDoc::vehicles()->findByNumber(int $manuId, int $modId, array $filter = null);
 
 TecDoc::articles()->filter(array $filter);
 

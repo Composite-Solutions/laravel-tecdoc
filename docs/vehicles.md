@@ -1,14 +1,24 @@
 # Vehicles
 
-## Get car IDs by criteria
+## Get vehicles by carId:
 
 #### Filter options:
 ```php
-$filter = [
+$filter = [ // optional
+    "lang" => "HU", // default is in config file
+]
+```
+
+```php
+TecDoc::vehicles()->filter(int $carId, array $filter = null);
+```
+## Get vehicles by manuId and modId
+
+#### Filter options:
+```php
+$filter = [ // optional
     "carType" => "P",  // default is P (passenger car)
     "lang" => "HU",  // default is in config file
-    "manuId" => 5, // Required, manufacturer ID
-    "modId" => 4955 // Required, model ID
 ]
 ```
 #### Car type string options:
@@ -17,24 +27,6 @@ $filter = [
 - L: Light commercial vehicle
 
 ```php
-TecDoc::vehicles()->ids(array $filter);
+TecDoc::vehicles()->findByNumber(int $manuId, int $modId, array $filter = null);
 ```
 
-## Filter vehicles by carIds:
-
-#### Filter options:
-```php
-$filter = [
-    "lang" => "HU", // default is in config file
-    "carIds" => [   // Required, carIDs
-        4086,
-        33014,
-        26582,
-        18069
-    ]
-]
-```
-
-```php
-TecDoc::vehicles()->filter(array $filter);
-```
