@@ -14,12 +14,12 @@ class AssemblyGroupDTO
      */
     public function createAssemblyGroupModel(array $assemblyGroupArray): AssemblyGroup
     {
-        $eanNumber = new AssemblyGroup();
-        $eanNumber->setAssemblyGroupName($assemblyGroupArray['assemblyGroupName'] ?? null);
-        $eanNumber->setAssemblyGroupNodeId($assemblyGroupArray['assemblyGroupNodeId'] ?? null);
-        $eanNumber->setHasChilds($assemblyGroupArray['hasChilds'] ?? null);
-        $eanNumber->setParentNodeId($assemblyGroupArray['parentNodeId'] ?? null);
-        return $eanNumber;
+        $assemblyGroup = new AssemblyGroup();
+        $assemblyGroup->setAssemblyGroupName($assemblyGroupArray['assemblyGroupName'] ?? null);
+        $assemblyGroup->setAssemblyGroupNodeId($assemblyGroupArray['assemblyGroupNodeId'] ?? null);
+        $assemblyGroup->setHasChilds($assemblyGroupArray['hasChilds'] ?? null);
+        $assemblyGroup->setParentNodeId($assemblyGroupArray['parentNodeId'] ?? null);
+        return $assemblyGroup;
     }
 
     /**

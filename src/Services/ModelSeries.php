@@ -2,6 +2,7 @@
 
 namespace Composite\TecDoc\Services;
 
+use Composite\TecDoc\DTOs\ModelSeries\ModelSeriesDTO;
 use Composite\TecDoc\Facades\TecDoc;
 use Illuminate\Support\Facades\Config;
 
@@ -29,6 +30,8 @@ class ModelSeries
     public function filter(array $filter): array
     {
         $response = TecDoc::post('',$this->createPayload($filter));
+        return (new ModelSeriesDTO())->mapModelSeriesCollection($response);
+
         return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
     
