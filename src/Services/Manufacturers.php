@@ -2,22 +2,13 @@
 
 namespace Composite\TecDoc\Services;
 
+use Composite\TecDoc\Collections\ManufacturerCollection;
+use Composite\TecDoc\DTOs\Manufacturer\ManufacturerDTO;
 use Composite\TecDoc\Facades\TecDoc;
 use Illuminate\Support\Facades\Config;
 
 class Manufacturers
 {
-    /**
-     * Get all passenger car manufacturers
-     *
-     * @return array
-     */
-    public function all(): array
-    {
-        $response = TecDoc::post('',$this->createPayload());
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
-    }
-
     /**
      * Filter manufacturers by
      * linking targer types.
@@ -36,12 +27,12 @@ class Manufacturers
      * @param  array $filter
      * @return array
      */
-    public function filter(array $filter): array
+    public function all(array $filter = null): array
     {
-        $response = TecDoc::post('',$this->createPayload($filter));
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
+        $response = TecDoc::post('', $this->createPayload($filter));
+        return (new ManufacturerDTO())->mapManufacturerCollection($response);
     }
-    
+
     /**
      * Create request payload for API calls
      *

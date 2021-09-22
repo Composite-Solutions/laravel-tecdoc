@@ -17,7 +17,7 @@
 
 You can install the package via [Composer](https://getcomposer.org/)
 ```bash
-$ composer require composite/laravel-tecdoc
+composer require composite/laravel-tecdoc
 ```
 
 In Laravel 5.5 or above the service provider will automatically get registered. In older versions of the framework just add the service provider in `config/app.php` file:
@@ -40,7 +40,7 @@ In Laravel 5.5 or above the service provider will automatically get registered. 
 
 You can publish the config file with:
 ```bash
-$ php artisan vendor:publish --provider="Composite\TecDoc\TecDocServiceProvider" --tag=config
+php artisan vendor:publish --provider="Composite\TecDoc\TecDocServiceProvider" --tag=config
 ```
 
 When published, [the `config/tecdoc.php` config](config/tecdoc.php) file contains:
@@ -114,7 +114,8 @@ return [
 - Model series, [check out the modelSeries.md](docs/modelSeries.md)
 - Vehicles, [check out the vehicles.md](docs/vehicles.md)
 - Articles, [check out the articles.md](docs/articles.md)
-
+- Addresses, [check out the articles.md](docs/addresses.md)
+- AssemblyGroups, [check out the assemblyGroups.md](docs/assemblyGroups.md)
 
 ```php
 TecDoc::get(string $uri, array $payload = []);
@@ -125,27 +126,29 @@ TecDoc::put(string $uri, array $payload = []);
 
 TecDoc::delete(string $uri, array $payload = []);
 
-TecDoc::manufacturers()->all();
+TecDoc::manufacturers()->all(array $filter = null);
 
-TecDoc::manufacturers()->filter(array $filter);
+TecDoc::modelSeries()->findByNumber(int $manuId, array $filter = null);
 
-TecDoc::modelSeries()->filter(array $filter);
+TecDoc::vehicles()->find(int $carId, array $filter = null);
 
-TecDoc::vehicles()->ids(array $filter);
+TecDoc::vehicles()->findByNumber(int $manuId, int $modId, array $filter = null);
 
-TecDoc::vehicles()->filter(array $filter);
-
-TecDoc::articles()->ids(array $filter);
+TecDoc::articles()->filter(array $filter);
 
 TecDoc::articles()->find(int $articleId, array $filter = null);
 
 TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
+
+TecDoc::addresses()->add(string $address, int $validityHours = null);
+
+TecDoc::assemblyGroups()->filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null);
 ```
     
 ## Testing
 
 ``` bash
-$ composer lint
+composer lint
 ```
 
 ## Contributing

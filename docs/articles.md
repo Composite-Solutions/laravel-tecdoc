@@ -30,7 +30,7 @@ $filter = [
 - 2: Sort by generic article name
 
 ```php
-TecDoc::articles()->ids(array $filter)
+TecDoc::articles()->filter(array $filter);
 ```
 ## Find article by articleId
 
@@ -58,7 +58,7 @@ $filter = [
     
 ```
 ```php
-TecDoc::articles()->find(int $articleId, array $filter = null)
+TecDoc::articles()->find(int $articleId, array $filter = null);
 ```
 ## Find article by any number
 
@@ -82,5 +82,5 @@ $filter = [
 - 6: EAN number
 - 10: Any number
 ```php
-TecDoc::articles()->findByNumber(string $articleNumber, array $filter = null)
+TecDoc::articles()->findByNumber(string $articleNumber, array $filter = null);
 ```
