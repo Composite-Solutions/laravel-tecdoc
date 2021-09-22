@@ -12,7 +12,8 @@ class ModelSeries
     /**
      * Filter ModelSeries
      * 
-     * $filter = [
+     * $manuId = 5;
+     * $filter = [ // optional
      *  "lang" => "HU", // default is in config file
      *  "linkingTargetType" => "P", // default is P (passenger car)
      *  "manuId" => 5 // Required 
@@ -27,12 +28,10 @@ class ModelSeries
      * @param  array $filter
      * @return array
      */
-    public function filter(array $filter): array
+    public function findByNumber(int $manuId, array $filter = null): array
     {
-        $response = TecDoc::post('',$this->createPayload($filter));
+        $response = TecDoc::post('',$this->createPayload($manuId, $filter));
         return (new ModelSeriesDTO())->mapModelSeriesCollection($response);
-
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
     }
     
     /**
@@ -41,7 +40,7 @@ class ModelSeries
      * @param  array $filter
      * @return void
      */
-    private function createPayload(array $filter)
+    private function createPayload(int $manuId, array $filter = null)
     {
         return [
             "getModelSeries" => [
@@ -49,7 +48,7 @@ class ModelSeries
                 "provider" => Config::get('tecdoc.provider_id'),
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
                 "linkingTargetType" => $filter["linkingTargetType"] ?? "P",
-                "manuId" => $filter["manuId"]
+                "manuId" => $manuId,
             ]
         ];
     }

@@ -4,10 +4,9 @@
 
 #### Filter options:
 ```php
-$filter = [
+$filter = [ // optional
     "lang" => "HU", // default is in config file
     "linkingTargetType" => "P", // default is P (passenger car)
-    "manuId" => 5 // Required, manufacturer ID
 ]
 ```
 #### Linking target type string options:
@@ -16,5 +15,5 @@ $filter = [
 - A: Axles
 
 ```php
-TecDoc::modelSeries()->filter(array $filter);
+TecDoc::modelSeries()->findByNumber(int $manuId, array $filter = null);
 ```

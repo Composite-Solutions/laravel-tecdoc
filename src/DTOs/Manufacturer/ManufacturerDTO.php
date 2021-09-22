@@ -2,7 +2,6 @@
 
 namespace Composite\TecDoc\DTOs\Manufacturer;
 
-use Composite\TecDoc\Collections\Manufacturer\ManufacturerCollection;
 use Composite\TecDoc\Models\Manufacturer\Manufacturer;
 
 class ManufacturerDTO
@@ -26,14 +25,14 @@ class ManufacturerDTO
      * Map manufacturers array to ManufacturerCollection
      *
      * @param  array $data
-     * @return ManufacturerCollection
+     * @return array
      */
-    public function mapManufacturerCollection(array $data) : ManufacturerCollection
+    public function mapManufacturerCollection(array $data) : array
     {
         if (isset($data["data"]) && $data["data"]) {
-            $manufacturers = new ManufacturerCollection();
+            $manufacturers = [];
             foreach ($data["data"]["array"] as $manufacturer) {
-                $manufacturers->add($this->createManufacturerModel($manufacturer));
+                array_push($manufacturers, $this->createManufacturerModel($manufacturer));
             }
             return $manufacturers;
         }

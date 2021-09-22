@@ -10,17 +10,6 @@ use Illuminate\Support\Facades\Config;
 class Manufacturers
 {
     /**
-     * Get all passenger car manufacturers
-     *
-     * @return ManufacturerCollection
-     */
-    public function all(): array
-    {
-        $response = TecDoc::post('', $this->createPayload());
-        return (new ManufacturerDTO())->mapManufacturerCollection($response)->toArray();
-    }
-
-    /**
      * Filter manufacturers by
      * linking targer types.
      * 
@@ -38,10 +27,10 @@ class Manufacturers
      * @param  array $filter
      * @return array
      */
-    public function filter(array $filter): array
+    public function all(array $filter = null): array
     {
         $response = TecDoc::post('', $this->createPayload($filter));
-        return (new ManufacturerDTO())->mapManufacturerCollection($response)->toArray();
+        return (new ManufacturerDTO())->mapManufacturerCollection($response);
     }
 
     /**

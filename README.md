@@ -126,11 +126,9 @@ TecDoc::put(string $uri, array $payload = []);
 
 TecDoc::delete(string $uri, array $payload = []);
 
-TecDoc::manufacturers()->all();
+TecDoc::manufacturers()->all(array $filter = null);
 
-TecDoc::manufacturers()->filter(array $filter);
-
-TecDoc::modelSeries()->filter(array $filter);
+TecDoc::modelSeries()->findByNumber(int $manuId, array $filter = null);
 
 TecDoc::vehicles()->find(int $carId, array $filter = null);
 

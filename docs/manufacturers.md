@@ -1,14 +1,9 @@
 # Manufacturers
 
-## List manufacturers (passenger car):
-```php
-TecDoc::manufacturers()->all();
-```
-
-## Filter manufacturers:
+## List manufacturers:
 #### Filter options:
 ```php
-$filter = [
+$filter = [ // optional
     "lang" => "HU" // default is in config
     "linkingTargetType" => "P" // default is P (passenger car)
 ]
@@ -20,5 +15,5 @@ $filter = [
 - M: Motor
 
 ```php
-TecDoc::manufacturers()->filter(array $filter);
+TecDoc::manufacturers()->all(array $filter = null);
 ```
