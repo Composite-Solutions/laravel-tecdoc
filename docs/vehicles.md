@@ -17,7 +17,7 @@ $filter = [
 - L: Light commercial vehicle
 
 ```php
-TecDoc::vehicles()->ids(array $filter)
+TecDoc::vehicles()->ids(array $filter);
 ```
 
 ## Filter vehicles by carIds:
@@ -36,5 +36,5 @@ $filter = [
 ```
 
 ```php
-TecDoc::vehicles()->filter(array $filter)
+TecDoc::vehicles()->filter(array $filter);
 ```

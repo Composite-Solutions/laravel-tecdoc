@@ -117,7 +117,6 @@ return [
 - Addresses, [check out the articles.md](docs/addresses.md)
 - AssemblyGroups, [check out the assemblyGroups.md](docs/assemblyGroups.md)
 
-
 ```php
 TecDoc::get(string $uri, array $payload = []);
 
@@ -137,7 +136,7 @@ TecDoc::vehicles()->ids(array $filter);
 
 TecDoc::vehicles()->filter(array $filter);
 
-TecDoc::articles()->ids(array $filter);
+TecDoc::articles()->filter(array $filter);
 
 TecDoc::articles()->find(int $articleId, array $filter = null);
 

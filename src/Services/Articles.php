@@ -41,10 +41,10 @@ class Articles
      * @param  array $filter
      * @return array
      */
-    public function ids(array $filter): array
+    public function filter(array $filter): array
     {
         $response = TecDoc::post('', $this->createIdsPayload($filter));
-        return isset($response["data"]) && $response["data"] ? $response["data"]["array"] : $response;
+        return (new ArticleDTO())->mapArticleCollection($response);
     }
 
     /**

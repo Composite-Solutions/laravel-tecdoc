@@ -11,5 +11,5 @@ If you would like to give the access to the user to access resources from TecDoc
 
 
 ```php
-TecDoc::addresses()->add(string $address, int $validityHours = null)
+TecDoc::addresses()->add(string $address, int $validityHours = null);
 ```
