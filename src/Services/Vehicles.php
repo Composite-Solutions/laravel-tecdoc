@@ -22,7 +22,6 @@ class Vehicles
     public function find(int $carId, array $filter = null)
     {
         $response = TecDoc::post('', $this->createFindPayload($carId, $filter));
-        // return $response["data"]["array"];
         return (new VehicleDTO())->createVehicleModel($response);
     }
 
@@ -49,7 +48,6 @@ class Vehicles
     public function findByNumber(int $manuId, int $modId, array $filter = null)
     {
         $response = TecDoc::post('', $this->createfindByNumberPayload($manuId, $modId, $filter));
-        // return $response;
         return (new VehicleDTO())->mapVehicleCollection($response);
     }
 
