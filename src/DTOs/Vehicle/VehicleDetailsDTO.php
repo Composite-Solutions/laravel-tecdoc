@@ -15,6 +15,7 @@ class VehicleDetailsDTO
      */
     public function createVehicleDetailsModel(array $vehicleDetailArray): VehicleDetails
     {
+        $vehicleDetailArray = $vehicleDetailArray["vehicleDetails"];
         $vehicleDetail = new VehicleDetails();
         $vehicleDetail->setCarId($vehicleDetailArray['carId'] ?? null);
         $vehicleDetail->setCcmTech($vehicleDetailArray['ccmTech'] ?? null);

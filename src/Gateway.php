@@ -26,9 +26,9 @@ class Gateway
      */
     public function __construct(?string $service_url, ?string $apiKey)
     {
-        if (!$apiKey) {
-            throw new InvalidArgumentException('API key is missing');
-        }
+        // if (!$apiKey) {
+        //     throw new InvalidArgumentException('API key is missing');
+        // }
         $this->apiKey = $apiKey;
         
         $this->client = new Client([
