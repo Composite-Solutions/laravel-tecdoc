@@ -42,6 +42,20 @@ class ArticleDocument extends Model
     public ?string $docTypeName; //"Kép"
 
     /**
+     * Document url
+     *
+     * @var string
+     */
+    public ?string $docUrl; //"https://webservice.tecalliance.services/pegasus-3-0/documents/22491/845520153294071"
+
+    /**
+     * Document thumbnail url
+     *
+     * @var string
+     */
+    public ?string $thumbnailUrl; //"https://webservice.tecalliance.services/pegasus-3-0/documents/22491/845520153294071/1"
+
+    /**
      * Get document file name
      *
      * @return  string
@@ -157,6 +171,54 @@ class ArticleDocument extends Model
     public function setDocTypeName(string $docTypeName = null)
     {
         $this->docTypeName = $docTypeName;
+
+        return $this;
+    }
+
+    /**
+     * Get document url
+     *
+     * @return  string
+     */ 
+    public function getDocUrl()
+    {
+        return $this->docUrl;
+    }
+
+    /**
+     * Set document url
+     *
+     * @param  string  $docUrl  Document url
+     *
+     * @return  self
+     */ 
+    public function setDocUrl(string $docUrl = null)
+    {
+        $this->docUrl = $docUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get document thumbnail url
+     *
+     * @return  string
+     */ 
+    public function getThumbnailUrl()
+    {
+        return $this->thumbnailUrl;
+    }
+
+    /**
+     * Set document thumbnail url
+     *
+     * @param  string  $thumbnailUrl  Document thumbnail url
+     *
+     * @return  self
+     */ 
+    public function setThumbnailUrl(string $thumbnailUrl = null)
+    {
+        $this->thumbnailUrl = $thumbnailUrl;
 
         return $this;
     }

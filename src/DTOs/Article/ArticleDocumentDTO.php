@@ -3,6 +3,7 @@
 namespace Composite\TecDoc\DTOs\Article;
 
 use Composite\TecDoc\Models\Article\ArticleDocument;
+use Illuminate\Support\Facades\Config;
 
 class ArticleDocumentDTO
 {
@@ -20,6 +21,12 @@ class ArticleDocumentDTO
         $articleDocument->setDocId($articleDocumentArray['docId'] ?? null);
         $articleDocument->setDocTypeId($articleDocumentArray['docTypeId'] ?? null);
         $articleDocument->setDocTypeName($articleDocumentArray['docTypeName'] ?? null);
+        $articleDocument->setDocUrl(
+            "https://webservice.tecalliance.services/pegasus-3-0/documents/".Config::get('tecdoc.provider_id')."/".$articleDocumentArray['docId']
+        );
+        $articleDocument->setThumbnailUrl(
+            "https://webservice.tecalliance.services/pegasus-3-0/documents/".Config::get('tecdoc.provider_id')."/".$articleDocumentArray['docId']."/1"
+        );
         return $articleDocument;
     }
 

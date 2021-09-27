@@ -63,10 +63,10 @@ return [
     
     /*
     |--------------------------------------------------------------------------
-    | API key
+    | API key (optional if IP is whitelisted)
     |--------------------------------------------------------------------------
     |
-    | The user's API key for TecDoc REST API service
+    | The user's API key for TecDoc REST API service.
     |
     */
 

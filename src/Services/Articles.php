@@ -15,10 +15,11 @@ class Articles
      *
      * $filter = [
      *  "lang" => "HU",  // default is in config file
+     *  "assemblyGroupNodeId" => 100006, // Required
      *  "linkingTargetId" => 26582, // Required (carId / motor id)
      *  "linkingTargetType" => "P",  // default is P (passenger car)
      *  "sort" => 1 // 1: by brand name, 2: by generic article name
-     *  "barandNo" => [
+     *  "barandNo" => [ // optional
      *      5,
      *      347,
      *      432
@@ -124,11 +125,12 @@ class Articles
                 "articleCountry" => Config::get('tecdoc.country'),
                 "provider" => Config::get('tecdoc.provider_id'),
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
+                "assemblyGroupNodeId" => $filter["assemblyGroupNodeId"],
                 "linkingTargetId" => $filter["linkingTargetId"],
                 "linkingTargetType" => $filter["linkingTargetType"] ?? "P",
-                "sort" => $filter["sort"],
+                "sort" => $filter["sort"] ?? 1,
                 "brandNo" => [
-                    "array" => $filter["brandNo"]
+                    "array" => $filter["brandNo"] ?? []
                 ]
             ]
         ];

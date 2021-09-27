@@ -6,9 +6,10 @@
 ```php
 $filter = [
     "lang" => "HU",  // default: config file
+    "assemblyGroupNodeId" => 100006, // Required
     "linkingTargetId" => 26582, // Required (carId / motor id)
     "linkingTargetType" => "P",  // default is P (passenger car)
-    "sort" => 1, // 1: by brand name, 2: by generic article name
+    "sort" => 1, // 1: by brand name, 2: by generic article name (default 1)
     "brandNo" => [
         5,
         347,
