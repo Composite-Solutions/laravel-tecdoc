@@ -19,6 +19,7 @@ class AssemblyGroupDTO
         $assemblyGroup->setAssemblyGroupNodeId($assemblyGroupArray['assemblyGroupNodeId'] ?? null);
         $assemblyGroup->setHasChilds($assemblyGroupArray['hasChilds'] ?? null);
         $assemblyGroup->setParentNodeId($assemblyGroupArray['parentNodeId'] ?? null);
+        $assemblyGroup->setChlidren([]);
         return $assemblyGroup;
     }
 
