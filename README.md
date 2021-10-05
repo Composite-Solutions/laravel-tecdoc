@@ -142,7 +142,7 @@ TecDoc::articles()->findByNumber(int $articleNumber, array $filter = null);
 
 TecDoc::addresses()->add(string $address, int $validityHours = null);
 
-TecDoc::assemblyGroups()->filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null);
+TecDoc::assemblyGroups()->filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null, bool $recursive = false);
 ```
     
 ## Testing

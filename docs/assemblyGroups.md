@@ -17,6 +17,9 @@ The Linking Target Id can be the id that has linking options from other request'
 - K: Body type,
 - U: Universal
 
+#### recursive
+If you would like to get the list in a nested array format, just give a "true" value to the filter method. Default it is false, and the children array is empty.
+
 #### Filter options:
 ```php
 // Optional
@@ -28,5 +31,5 @@ $filter = [
 ```
 
 ```php
-TecDoc::assemblyGroups()->filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null);
+TecDoc::assemblyGroups()->filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null, bool $recursive = false);
 ```

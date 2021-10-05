@@ -34,6 +34,13 @@ class AssemblyGroup extends Model
      */
     public ?int $parentNodeId; //100010,
 
+    /**
+     * Assembly Group children
+     *
+     * @var array
+     */
+    public ?array $children;
+
 
     /**
      * Get assembly Group Name
@@ -128,6 +135,29 @@ class AssemblyGroup extends Model
     {
         $this->parentNodeId = $parentNodeId;
 
+        return $this;
+    }
+
+    /**
+     * Get assembly Group children
+     *
+     * @return  array
+     */ 
+    public function getChlidren()
+    {
+        return $this->chlidren;
+    }
+
+    /**
+     * Set assembly Group children
+     *
+     * @param  array  $chlidren  Assembly Group children
+     *
+     * @return  self
+     */ 
+    public function setChlidren(array $children = null)
+    {
+        $this->children = $children;
         return $this;
     }
 }

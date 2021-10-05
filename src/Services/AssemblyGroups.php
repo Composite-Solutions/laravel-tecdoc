@@ -17,7 +17,8 @@ class AssemblyGroups
      *  'lang' => 'HU,
      *  'childNodes' => true,
      *  'linked' => true,
-     * ]
+     * ];
+     * $recursive = true;
      * 
      * linkingTargetType options:
      *  P: Passenger car,
@@ -31,10 +32,14 @@ class AssemblyGroups
      * @param  mixed $filter
      * @return void
      */
-    public function filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null)
+    public function filter(int $linkingTargetId, string $linkingTargetType = null, array $filter = null, bool $recursive = false)
     {
         $response = TecDoc::post('', $this->createGetChildNodesAllLinkingTarget2Payload($linkingTargetId, $linkingTargetType, $filter));
-        return (new AssemblyGroupDTO())->mapAssemblyGroupCollection($response);
+        if ($recursive) {
+            return $this->makeNested((new AssemblyGroupDTO())->mapAssemblyGroupCollection($response));
+        } else {
+            return (new AssemblyGroupDTO())->mapAssemblyGroupCollection($response);
+        }
     }
 
     public function createGetChildNodesAllLinkingTarget2Payload(int $linkingTargetId, string $linkingTargetType = null, array $filter = null)
@@ -50,5 +55,31 @@ class AssemblyGroups
                 "provider" => env('TECDOC_PROVIDER_ID')
             ]
         ];
+    }
+
+    function makeNested($source)
+    {
+        $nested = array();
+        foreach ($source as &$s) {
+            if (is_null($s->parentNodeId)) {
+                $nested[] = &$s;
+            } else {
+                $pid = $s->parentNodeId;
+                if ($source[array_search($pid, array_column($source, 'assemblyGroupNodeId'))]) {
+                    if (
+                        !isset(
+                            $source[array_search(
+                                    $pid,
+                                    array_column($source, 'assemblyGroupNodeId')
+                                )]->children
+                        )
+                    ) {
+                        $source[array_search($pid, array_column($source, 'assemblyGroupNodeId'))]->children = array();
+                    }
+                    $source[array_search($pid, array_column($source, 'assemblyGroupNodeId'))]->children[] = &$s;
+                }
+            }
+        }
+        return $nested;
     }
 }
