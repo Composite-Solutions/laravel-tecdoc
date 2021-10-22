@@ -29,7 +29,7 @@ class ArticleDTO
             $article->setImmediateAttributs((new ImmediateAttributDTO())->mapImmediateAttributCollection($articleArray));
             // TODO immediateInfo implementation, DTO and others
             // TODO mainArticle implementation, DTO and others
-            $article->setOenNumbers((new OenNumberDto())->mapOenNumberCollection($articleArray));
+            $article->setOenNumbers((new OenNumberDTO())->mapOenNumberCollection($articleArray));
             // TODO replacedByNumber implementation, DTO and others
             // TODO replacedNumber implementation, DTO and others
             $article->setUsageNumbers((new UsageNumberDTO())->mapUsageNumberCollection($articleArray));
