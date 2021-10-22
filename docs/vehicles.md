@@ -10,7 +10,7 @@ $filter = [ // optional
 ```
 
 ```php
-TecDoc::vehicles()->filter(int $carId, array $filter = null);
+TecDoc::vehicles()->find(int $carId, array $filter = null);
 ```
 ## Get vehicles by manuId and modId
 
