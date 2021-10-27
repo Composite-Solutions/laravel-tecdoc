@@ -176,6 +176,7 @@ class Articles
                 'articleNumber' => $articleNumber,
                 'numberType' => $filter["numberType"] ?? 0,
                 'searchExact' => $filter["searchExact"] ?? true,
+                'brandId' => $filter["brandId"] ?? null,
             ],
         ];
     }
