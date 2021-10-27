@@ -70,6 +70,7 @@ $filter = [
     'lang' => 'HU', // default: config file
     'numberType' => 0, // default: 0 (article number)
     'searchExact' => true, // default: true
+    'brandId' = 30 // default: null
 ]
     
 ```
