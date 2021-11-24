@@ -18,6 +18,7 @@ class DirectArticleDTO
         $directArticle = new DirectArticle();
         $directArticle->setArticleId($directArticleArray["articleId"] ?? null);
         $directArticle->setArticleName($directArticleArray["articleName"] ?? null);
+        $directArticle->setArticleAddName($directArticleArray["articleAddName"] ?? null);
         $directArticle->setArticleNo($directArticleArray["articleNo"] ?? null);
         $directArticle->setArticleState($directArticleArray["articleState"] ?? null);
         $directArticle->setArticleStateName($directArticleArray["articleStateName"] ?? null);

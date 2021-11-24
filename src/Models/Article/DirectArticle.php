@@ -19,6 +19,13 @@ class DirectArticle extends Model
      * @var string
      */
     public ?string $articleName; // "fojtószelep ház",
+
+    /**
+     * Article add name
+     *
+     * @var string
+     */
+    public ?string $articleAddName; // "fojtószelep ház",
     
     /**
      * Article number
@@ -784,6 +791,30 @@ class DirectArticle extends Model
     public function setArticleName(string $articleName = null)
     {
         $this->articleName = $articleName;
+
+        return $this;
+    }
+
+    /**
+     * Get article aa name
+     *
+     * @return  string
+     */ 
+    public function getArticleAddName()
+    {
+        return $this->articleAddName;
+    }
+
+    /**
+     * Set article add name
+     *
+     * @param  string  $articleAddName  Article aa name
+     *
+     * @return  self
+     */ 
+    public function setArticleAddName(string $articleAddName = null)
+    {
+        $this->articleAddName = $articleAddName;
 
         return $this;
     }
