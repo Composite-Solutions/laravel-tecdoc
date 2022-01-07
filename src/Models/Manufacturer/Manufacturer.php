@@ -26,6 +26,13 @@ class Manufacturer extends Model
      * @var string
      */
     public string $linkingTargetTypes;
+
+    /**
+     * Most popular manufacturers
+     *
+     * @var int
+     */
+    public int $favorFlag;
         
     /**
      * Get manufacturer ID
@@ -89,5 +96,27 @@ class Manufacturer extends Model
     public function setLinkingTargetTypes(string $linkingTargetTypes)
     {
         $this->linkingTargetTypes = $linkingTargetTypes;
+    }
+
+    /**
+     * Get most popular manufacturers
+     *
+     * @return  int
+     */ 
+    public function getFavorFlag()
+    {
+        return $this->favorFlag;
+    }
+
+    /**
+     * Set most popular manufacturers
+     *
+     * @param  int  $favorFlag  Most popular manufacturers
+     *
+     * @return  self
+     */ 
+    public function setFavorFlag(int $favorFlag)
+    {
+        $this->favorFlag = $favorFlag;
     }
 }

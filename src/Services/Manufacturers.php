@@ -47,6 +47,7 @@ class Manufacturers
                 "provider" => Config::get('tecdoc.provider_id'),
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
                 "linkingTargetType" => $filter["linkingTargetType"] ?? "POM",
+                "favouredList" => $filter["favouredList"] ?? null,
             ]
         ];
     }

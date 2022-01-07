@@ -19,6 +19,7 @@ class ManufacturerDTO
         $manufacturer->setManuName($manufacturerArray['manuName']);
         $manufacturer->setManuID($manufacturerArray['manuId']);
         $manufacturer->setLinkingTargetTypes($manufacturerArray['linkingTargetTypes']);
+        $manufacturer->setFavorFlag($manufacturerArray['favorFlag']);
         return $manufacturer;
     }
         

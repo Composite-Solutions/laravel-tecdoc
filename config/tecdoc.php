@@ -44,7 +44,7 @@ return [
     |
     */
 
-    'country' => 'HU',
+    'country' => env('TECDOC_COUNTRY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,6 +55,6 @@ return [
     |
     */
 
-    'lang' => 'HU',
+    'lang' => env('TECDOC_LANG'),
 
 ];
