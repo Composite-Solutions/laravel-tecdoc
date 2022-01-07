@@ -42,11 +42,11 @@ class Manufacturers
     private function createPayload(array $filter = null): array
     {
         return [
-            "getManufacturers" => [
+            "getManufacturers2" => [
                 "country" => Config::get('tecdoc.country'),
                 "provider" => Config::get('tecdoc.provider_id'),
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
-                "linkingTargetType" => $filter["linkingTargetType"] ?? "P",
+                "linkingTargetType" => $filter["linkingTargetType"] ?? "POM",
             ]
         ];
     }
