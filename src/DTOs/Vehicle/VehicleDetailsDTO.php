@@ -3,6 +3,7 @@
 namespace Composite\TecDoc\DTOs\Vehicle;
 
 use Composite\TecDoc\Models\Vehicle\VehicleDetails;
+use Exception;
 
 class VehicleDetailsDTO
 {
@@ -15,6 +16,16 @@ class VehicleDetailsDTO
      */
     public function createVehicleDetailsModel(array $vehicleDetailArray): VehicleDetails
     {
+        $motorCodes = [];
+        try{
+            $motorCodesArray = $vehicleDetailArray["motorCodes"]["array"];
+    
+            // Make simple array from nested associative array
+            foreach($motorCodesArray as $motorCode){
+                $motorCodes[] = $motorCode["motorCode"];
+            }
+        } catch(Exception $ex){}
+
         $vehicleDetailArray = $vehicleDetailArray["vehicleDetails"];
         $vehicleDetail = new VehicleDetails();
         $vehicleDetail->setCarId($vehicleDetailArray['carId'] ?? null);
@@ -41,6 +52,7 @@ class VehicleDetailsDTO
         $vehicleDetail->setYearOfConstrFrom($vehicleDetailArray['yearOfConstrFrom'] ?? null);
         $vehicleDetail->setYearOfConstrTo($vehicleDetailArray['yearOfConstrTo'] ?? null);
         $vehicleDetail->setRmiTypeId($vehicleDetailArray['rmiTypeId'] ?? null);
+        $vehicleDetail->setMotorCodes($motorCodes);
         return $vehicleDetail;
     }
 }

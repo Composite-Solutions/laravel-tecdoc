@@ -175,6 +175,13 @@ class VehicleDetails extends Model
     public ?int $rmiTypeId; // 63618
 
     /**
+     * motorCodes
+     *
+     * @var array
+     */
+    public ?array $motorCodes; // ["motorCode: "BMM"]
+
+    /**
      * Get carId
      *
      * @return  int
@@ -746,6 +753,30 @@ class VehicleDetails extends Model
     public function setModId(int $modId = null)
     {
         $this->modId = $modId;
+
+        return $this;
+    }
+
+    /**
+     * Get motorCodes
+     *
+     * @return  array
+     */ 
+    public function getMotorCodes()
+    {
+        return $this->motorCodes;
+    }
+
+    /**
+     * Set motorCodes
+     *
+     * @param  array  $motorCodes  motorCodes
+     *
+     * @return  self
+     */ 
+    public function setMotorCodes(array $motorCodes = null)
+    {
+        $this->motorCodes = $motorCodes;
 
         return $this;
     }

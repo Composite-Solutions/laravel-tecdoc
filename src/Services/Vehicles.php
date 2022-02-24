@@ -85,6 +85,7 @@ class Vehicles
                 "countriesCarSelection" => Config::get('tecdoc.country'),
                 "provider" => Config::get('tecdoc.provider_id'),
                 "lang" => $filter["lang"] ?? Config::get('tecdoc.lang'),
+                "motorCodes" => true,
                 "carIds" => [
                     "array" => [$carId]
                 ]
