@@ -22,9 +22,9 @@
         "issues": "https://github.com/Composite-Solutions/laravel-tecdoc/issues"
     },
     "require": {
-        "php": "^7.2",
+        "php": ">=7.2"
         "ext-json": "*",
-        "illuminate/support": "5.8.*|~6.0|~7.0|~8.0",
+        "illuminate/support": "^6|^8|^9",
         "guzzlehttp/guzzle": "~6.0|~7.0"
     },
     "autoload": {
