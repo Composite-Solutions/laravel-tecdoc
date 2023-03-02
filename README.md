@@ -10,8 +10,7 @@
 
 ## Dependencies
 
-- [PHP](https://secure.php.net): ^7.1
-- [illuminate/support](https://github.com/illuminate/support): ^5.0
+- [PHP](https://secure.php.net): ^8.1
 
 ## Install
 
