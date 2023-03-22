@@ -18,7 +18,7 @@ class VehicleDetailsDTO
     {
         $motorCodes = [];
         try {
-            if (!isset($vehicleDetailArray["motorCodes"]["array"]) && !empty($vehicleDetailArray["motorCodes"]["array"])) {
+            if (!empty($vehicleDetailArray["motorCodes"])) {
                 $motorCodesArray = $vehicleDetailArray["motorCodes"]["array"];
 
                 // Make simple array from nested associative array
