@@ -17,14 +17,16 @@ class VehicleDetailsDTO
     public function createVehicleDetailsModel(array $vehicleDetailArray): VehicleDetails
     {
         $motorCodes = [];
-        try{
-            $motorCodesArray = $vehicleDetailArray["motorCodes"]["array"];
-    
-            // Make simple array from nested associative array
-            foreach($motorCodesArray as $motorCode){
-                $motorCodes[] = $motorCode["motorCode"];
+        try {
+            if (!isset($vehicleDetailArray["motorCodes"]["array"]) && !empty($vehicleDetailArray["motorCodes"]["array"])) {
+                $motorCodesArray = $vehicleDetailArray["motorCodes"]["array"];
+
+                // Make simple array from nested associative array
+                foreach ($motorCodesArray as $motorCode) {
+                    $motorCodes[] = $motorCode["motorCode"];
+                }
             }
-        } catch(Exception $ex){}
+        } catch (Exception $ex) {}
 
         $vehicleDetailArray = $vehicleDetailArray["vehicleDetails"];
         $vehicleDetail = new VehicleDetails();
