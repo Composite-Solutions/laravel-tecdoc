@@ -15,6 +15,10 @@
             "name": "Bence Támba",
             "email": "btamba@composite.hu",
             "homepage": "https://composite-solutions.eu"
+        },{
+            "name": "Márton Karácsony",
+            "email": "mkaracsony@composite.hu",
+            "homepage": "https://composite-solutions.eu"
         }
     ],
     "support": {
@@ -24,7 +28,7 @@
     "require": {
         "php": "^8.1",
         "ext-json": "*",
-        "illuminate/support": "^6|^8|^9",
+        "illuminate/support": "^6|^8|^9|^10",
         "guzzlehttp/guzzle": "~6.0|~7.0"
     },
     "autoload": {
